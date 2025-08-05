@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { solveCryptarithm } from '../utils/Solver';
-import './App.css';
 
 const CryptarithmSolver = () => {
     const [word1, setWord1] = useState('');
@@ -52,85 +51,53 @@ const CryptarithmSolver = () => {
 
     return (
         <div className="cryptarithm-solver">
-            <div className="equation-display">
-                <div className="equation-row">
-                    <div className="equation-input">
-                        <label htmlFor="word1">Word 1</label>
-                        <input
-                            id="word1"
-                            type="text"
-                            value={word1}
-                            onChange={(e) => setWord1(e.target.value.toUpperCase())}
-                            placeholder="e.g., SEND"
-                        />
-                    </div>
-                </div>
-                
-                <div className="equation-row">
-                    <div className="equation-input">
-                        <label htmlFor="word2">Word 2</label>
-                        <input
-                            id="word2"
-                            type="text"
-                            value={word2}
-                            onChange={(e) => setWord2(e.target.value.toUpperCase())}
-                            placeholder="e.g., MORE"
-                        />
-                    </div>
-                    <div className="equation-operator">+</div>
-                </div>
-                
-                <div className="divider"></div>
-                
-                <div className="equation-row">
-                    <div className="equation-input">
-                        <label htmlFor="result">Result</label>
-                        <input
-                            id="result"
-                            type="text"
-                            value={result}
-                            onChange={(e) => setResult(e.target.value.toUpperCase())}
-                            placeholder="e.g., MONEY"
-                        />
-                    </div>
-                </div>
-            </div>
+            <h1>Cryptarithm Solver</h1>
+            
+            <div className="input-section">
+                <label htmlFor="word1">Word 1</label>
+                <input
+                    id="word1"
+                    type="text"
+                    value={word1}
+                    onChange={(e) => setWord1(e.target.value.toUpperCase())}
+                    placeholder="e.g., CRACK"
+                />
 
-            <button 
-                className="solve-btn" 
-                onClick={handleSolve} 
-                disabled={isSolving}
-            >
-                {isSolving ? 'Solving...' : 'Solve Puzzle'}
-            </button>
+                <label htmlFor="word2">Word 2</label>
+                <input
+                    id="word2"
+                    type="text"
+                    value={word2}
+                    onChange={(e) => setWord2(e.target.value.toUpperCase())}
+                    placeholder="e.g., HACK"
+                />
+
+                <label htmlFor="result">Result</label>
+                <input
+                    id="result"
+                    type="text"
+                    value={result}
+                    onChange={(e) => setResult(e.target.value.toUpperCase())}
+                    placeholder="e.g., ERROR"
+                />
+
+                <button onClick={handleSolve} disabled={isSolving}>
+                    {isSolving ? 'Solving...' : 'Solve'}
+                </button>
+            </div>
 
             <div className="examples">
                 <p>Try these examples:</p>
-                <button 
-                    className="example-btn" 
-                    onClick={() => handleExample('SEND MORE MONEY')}
-                >
-                    SEND + MORE = MONEY
-                </button>
-                <button 
-                    className="example-btn" 
-                    onClick={() => handleExample('TWO TWO FOUR')}
-                >
-                    TWO + TWO = FOUR
-                </button>
-                <button 
-                    className="example-btn" 
-                    onClick={() => handleExample('CRACK HACK ERROR')}
-                >
-                    CRACK + HACK = ERROR
-                </button>
+                <button onClick={() => handleExample('CRACK HACK ERROR')}>CRACK + HACK = ERROR</button>
+                <button onClick={() => handleExample('TWO TWO FOUR')}>TWO + TWO = FOUR</button>
+                <button onClick={() => handleExample('ADA DI DIA')}>ADA + DI = DIA</button>
             </div>
 
             {error && <div className="error">{error}</div>}
 
             {solution && (
                 <div className="solution">
-                    <h2>Solution Found!</h2>
+                    <h2>Solution:</h2>
                     <ul>
                         {Object.entries(solution).map(([letter, digit]) => (
                             <li key={letter}>
@@ -138,12 +105,11 @@ const CryptarithmSolver = () => {
                             </li>
                         ))}
                     </ul>
-                    
-                    <div className="solution-equation">
-                        <p>{substitute(word1, solution)}</p>
-                        <p>+ {substitute(word2, solution)}</p>
-                        <hr />
-                        <p>{substitute(result, solution)}</p>
+                    <div className="equation">
+                        <p>Substituted equation:</p>
+                        <p>
+                            {substitute(word1, solution)} + {substitute(word2, solution)} = {substitute(result, solution)}
+                        </p>
                     </div>
                 </div>
             )}
