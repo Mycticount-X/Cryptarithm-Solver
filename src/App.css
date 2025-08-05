@@ -1,42 +1,181 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header h1 {
+    font-size: 2.2em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
 }
 
-.card {
-  padding: 2em;
+.cryptarithm-solver {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.input-section {
+    margin-bottom: 1.5rem;
+}
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.input-section label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #cccccc;
+}
+
+.input-section input {
+    width: 80%;
+    padding: 0.6em 1em;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #fff;
+    transition: border-color 0.25s ease;
+}
+
+.input-section input:focus {
+    outline: none;
+    border-color: #646cff;
+}
+
+.input-section button {
+    align-self: center;
+    padding: 0.8em 2em;
+    font-size: 1.1em;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+
+button {
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #444;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 0.5rem;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.examples {
+    margin: 1.5rem 0;
+}
+
+.solution {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #2a2a2a;
+    border-radius: 8px;
+}
+
+.solution ul {
+    list-style: none;
+    padding: 0;
+}
+
+.solution li {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: #3a3a3a;
+    border-radius: 4px;
+}
+
+.equation {
+    margin-top: 1rem;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.error {
+    color: #ff6464;
+    margin: 1rem 0;
+}
+
+.explanation {
+    text-align: left;
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 0.8em;
+    color: #888;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    .cryptarithm-solver,
+    .explanation,
+    button {
+        background-color: #f9f9f9;
+    }
+
+    input {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+    }
+
+    .solution {
+        background-color: #f0f0f0;
+    }
+
+    .solution li {
+        background-color: #e0e0e0;
+    }
 }
